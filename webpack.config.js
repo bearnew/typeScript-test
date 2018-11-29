@@ -1,7 +1,3 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-
 module.exports = {
     entry: "./src/index.tsx",
     output: {
@@ -10,7 +6,7 @@ module.exports = {
     },
 
     // Enable sourcemaps for debugging webpack's output.
-    devtool: "eval-source-map",
+    devtool: "source-map",
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -34,15 +30,5 @@ module.exports = {
     externals: {
         "react": "React",
         "react-dom": "ReactDOM"
-    },
-    devServer: {
-        contentBase: path.resolve(__dirname, '.'),
-        hot: true
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-        }),
-        new webpack.HotModuleReplacementPlugin() // 热加载
-    ]
+    }
 };
